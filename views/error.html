@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>温馨提示</title>
+</head>
+<body>
+
+<h1>{{{message}}}</h1>
+<h2>{{{error.status}}}</h2>
+{{{if error.status!==404 }}}
+<pre>{{{error.stack}}}</pre>
+{{{ /if }}}
+</body>
+</html>
+

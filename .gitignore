@@ -1,0 +1,5 @@
+.idea/
+/conf/server.json
+/conf/auth.json.conf
+/error.log
+/access.log

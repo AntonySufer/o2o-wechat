@@ -1,0 +1,503 @@
+{{{include '../../layout_second/header'}}}
+
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/css/bootstrap.min.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/icons.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/weixin_module.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/dialog.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/guide_tise.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/base.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/zdy_version.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/zdy_weixin.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+
+<style>
+.resetPosition{postion:relateve;top:638px;left:578px}
+
+  .icon-source_tise{
+    font-size: 12px;
+    color: #CBCBCB;
+    background-image: none;
+    width: 16px;
+    height: 16px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #CBCBCB;
+    margin-left: 6px;
+    margin-right: 1px;
+    cursor: pointer;
+  }
+
+  .source_tise_box{
+    display: none;
+    width: 185px;
+    height: 50px;
+    line-height: 49px;
+    padding-left: 18px;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(34, 25, 25, 0.2);
+    background-color: #fff;
+    left: -77px;
+    top: 22px;
+    color: #DD9F6F;
+    text-align: left;
+    font-size: 12px;
+    z-index: 11;
+  }
+
+  .shop_weixintj_source_tise{
+  display: inline-block;
+  top: 2px;
+  }
+
+  .source_tise_box:before{
+    left: 84px;
+    top: -5px;
+    transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    background: #FFFFFF;
+    box-shadow: -2px -2px 4px -2px rgba(34, 25, 25, 0.2);
+    -webkit-box-shadow: -2px -2px 4px -2px rgba(34, 25, 25, 0.2);
+    content: "";
+    height: 15px;
+    position: absolute;
+    width: 15px;
+    z-index: 1;
+  }
+
+
+.maskLayer{
+    background-color: #000000;
+    height: 100%;
+    left: 0;
+    filter: alpha(opacity=30);
+    opacity: 0.3;
+    overflow: hidden;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+    display: none;
+
+  }
+
+  .TaoCan{
+    display: none;
+    z-index: 99999;
+    position: absolute;
+    top: 26%;
+    left: 50%;
+    margin-left: -425px;
+  }
+
+  .tancanLeng{
+    width:100px ;
+    padding:0 0px;
+    font-size:10px;
+  }
+
+  .weixinCode_lu{
+    width: 950px;
+    display: table;
+    margin: auto;
+    border-bottom: 1px solid #E7E7E7;
+
+  }
+
+  .changeSj{
+    position: relative;
+    left: 478px;
+    top: -43px;
+
+  }
+
+  .tcbgcolor{
+    border-radius: 5px;
+    margin-top: 1px;
+    background-color: #F3F3F5;
+  }
+
+
+</style>
+
+</head>
+
+<body   id="header">
+{{{include '../../layout_second/top'}}}
+<input type="hidden" id="shopIdKey" value="{{{ shopSid }}}">
+
+     <div style=" text-align: center;"><a href="javascript:;" class="changeSj" >切换到商家公众号</a></div>
+
+    <div class="page_main" id="auto_page_main">
+
+
+      <!-- 内容主区域S -->
+<div class="container  weixinhd_main"> 
+
+
+
+  <!-- 选择菜单s -->
+  
+   <ul class="top_menu_box_type2 " id="auto_topmenu_box">
+    <li><a  class="active" >公众号首页</a><a  id="navigation_set">一键连WiFi</a> <a  id="fansManager"  >粉丝管理</a></li>
+  </ul>
+
+
+  <div class="weixin_container_box mb20" id="auto_weixin_container_box" >
+
+
+
+    <div class="weixinCode_banner"></div>
+    <!--二维码主体-->
+    <div class="er_weima_container" id="buyTrue" style="display: none;">
+      <div class="er_weima_p01">
+        <div class="er_weima_h"></div>
+        <span class="er_weima_span01">功能状态：</span>
+        <span class="er_weima_span02">已开通<span class="color_qg" id="zsdateP">（有效期：<span class="color_qg" id="zsdate"></span>）</span></span>
+        <span class="er_weima_span03"><a href="javascript:;" class="zsKaiTong"></a></span>
+      </div>
+      <div class="er_weima_p01 er_weima_p02">
+        <div class="er_weima_h02"></div>
+        <span class="er_weima_span01">专属二维码：
+             <div class="shop_weixintj_source_tise poi1 piontOut" style="display: none;"><span class="icon-source_tise">?</span>
+               <div class="source_tise_box poi2" >让顾客扫一扫，关注您店铺</div>
+            </div>
+        </span>
+
+
+
+        <span class="er_weima_span02" style="padding-bottom:10px;">
+
+          <img id="focusImg" style="width: 75px; height: 75px;margin-left: -9px;"  /></span>
+        <span class="er_weima_span03"><a id="downFocusImg"  download>下载</a></span>
+      </div>
+      <div class="er_weima_p01 er_weima_p02">
+        <div class="er_weima_h02"></div>
+        <span class="er_weima_span01">收银二维码：
+           <div class="shop_weixintj_source_tise poi1 piontOut" style="display: none;"><span class="icon-source_tise">?</span>
+            <div class="source_tise_box poi2">让顾客扫一扫，向您付款</div>
+          </div>
+        </span>
+
+        <span class="er_weima_span02" style="padding-bottom:10px;">
+          <img id="payImg" style="width: 75px; height: 75px;margin-left: -9px;"  /></span>
+        <span class="er_weima_span03"><a href="" id="downPayImg"  download>下载</a></span>
+      </div>
+      <div class="er_weima_p01">
+        <span class="er_weima_span01">申请台卡物料：</span>
+        <span class="er_weima_span02">请联系美丽加城市经理，或直接拨打客服电话4007-899-166转01</span>
+        <!--	<span class="er_weima_span03"><a>续费</a></span>-->
+      </div>
+      <div class="er_weima_p01">
+        <span class="er_weima_span01">商家公众号接入服务：</span>
+        <span class="er_weima_span02 sjText" ></span>
+        <span class="er_weima_span03 " ><a class="sjkaitong"></a></span>
+        <div class="er_weima_h02"></div>
+      </div>
+    </div>
+    <!--没有开通的情况-->
+    <div class="er_weima_container" id="buyFalse" >
+      <div class="er_weima_p01">
+        <div class="er_weima_h"></div>
+        <span class="er_weima_span01">功能状态：</span>
+        <span class="er_weima_span02">未开通</span></span>
+        <span class="er_weima_span03"><a href="javascript:;" class="zsKaiTong"></a></span>
+      </div>
+      <div class="er_weima_p01 ">
+
+        <span class="er_weima_span01">专属公众号二维码：</span>
+        <span class="er_weima_span02">暂未开通专属公众号</span>
+        <span class="er_weima_span03"></span>
+      </div>
+      <div class="er_weima_p01 ">
+
+        <span class="er_weima_span01">收银二维码：</span>
+        <span class="er_weima_span02">暂未开通专属公众号</span>
+        <span class="er_weima_span03"></span>
+      </div>
+      <div class="er_weima_p01">
+        <span class="er_weima_span01">申请台卡物料：</span>
+        <span class="er_weima_span02">请联系美丽加城市经理，或直接拨打客服电话4007-899-166转01</span>
+        <!--	<span class="er_weima_span03"><a>续费</a></span>-->
+      </div>
+      <div class="er_weima_p01">
+        <span class="er_weima_span01">商家公众号接入服务：</span>
+        <span class="er_weima_span02 sjText" ></span>
+        <span class="er_weima_span03 " ><a class="sjkaitong"></a></span>
+        <div class="er_weima_h02"></div>
+      </div>
+    </div>
+    <!--二维码主体E-->
+  </div>
+  <!-- 规则介绍 -->
+    <!-- 规则介绍 -->
+    <div class="weixin_container_box " >
+
+      <!-- 标题 -->
+      <div class="finance_report_income_tatle weixinCode_luletatle">常见问题</div>
+      <!-- 标题 -->
+
+      <ul class="weixinCode_lule weixin_list01" style="margin-bottom: initial;">
+        <li class="list01">
+          <p class="txt1">1.如何增加自己的粉丝？</p>
+          <p class="txt2">答：让顾客扫描店铺专属公众号关注，或顾客付款时微信扫码支付，<br>
+            或让顾客在美丽加服务号内回复本店店铺号。</p>
+          <p class="txt1">2.发展顾客成为粉丝有什么好处？</p>
+          <p class="txt2">答：一键获取WiFi，立即设置WiFi。商家设置营销活动，便于运营。</p>
+          <p class="txt1">3.顾客如何关联查询自己的消费信息？</p>
+          <p class="txt2">答：店铺收银时选择微信支付，让顾客在线扫码，或者顾客在公众号<br>提交手机号码验证。关联后顾客可接收消费通知，查询消费卡、消费记录，预约和店铺店铺服务。</p>
+
+        </li>
+        <li class="list02">
+          <p class="txt1">4.扫码支付支持哪些支付方式？</p>
+          <p class="txt2">答：当前支持微信支付&支付宝支付。</p>
+          <p class="txt1">5.顾客扫码支付后，钱在哪里？</p>
+          <p class="txt2">答：店主可在商家版美丽加app>工作台>美丽宝中查看每一笔进账。支持随时提现，第二个工作日到账。
+          </p>
+        </li>
+      </ul>
+
+     <!-- <div id="showShopLink" class=" weixinCode_lule_tise" style="padding-top:2px;display: none;">切换到商家公众号，请<a id="sjkaitong" >前往<span class="font_songti">>> </a></div>
+    -->
+    </div>
+
+    <!-- 规则介绍E -->
+ </div>
+
+
+
+
+
+
+
+
+
+<!--全屏遮罩-->
+<div class="maskLayer" id="shawn_show" style=""></div>
+      <!--商家套餐-->
+      <div class="open_time_fl TaoCan"  style="width: 850px;" id="sjTaoCan">
+        <div class="open_time_pos"  style="width:  850px;">
+          <div class="open_versions tcbgcolor"  style="margin-bottom: 10px" >商家公众号接入服务</div>
+          <div class="open_time_color">
+            <p>建议用已认证的服务号（公众号的一种类型）来接入到美丽加。</p>
+            <p>由于微信接口限制，未认证公众号无法使用某些功能。公众号认证需向腾讯缴纳300元/年的认证费用。</p>
+
+          </div>
+          <div class="open_time_cen martop10">
+            <p style="float: left;height: 60px;">规格：</p>
+            <div id="sjTcResults" style="width:600px;">
+             <!-- <a class="open_time_img bor_blue"><i class="icon_gou"></i>有公众号1年</a>
+              <a class="open_time_img ">有公众号2年</a>
+              <a class="open_time_img bor_blue"><i class="icon_gou"></i>有公众号3年</a>
+              <a class="open_time_img bor_blue"><i class="icon_gou"></i>无公众号1年</a>
+              <a class="open_time_img ">无公众号2年</a>
+              <a class="open_time_img bor_blue"><i class="icon_gou"></i>无公众号3年</a>-->
+            </div></div>
+          <div class="open_time_cen ">
+            <span style="margin-left: -43px;">金额：</span>
+            <span class="tk_red" id="sjPrice"></span>元
+          </div>
+
+
+          <a class="eating_tc_btn_close closeBtn " style="top:4px;">×</a>
+        </div>
+        <div class="edit_name_box_btn02 ">
+          <a id="sjsure"  class="  butsbase_ib  butblue01 mr30  text-center">确定</a>
+        </div>
+      </div>
+
+  <!--专属公众号套餐-->
+      <div class="sms_place_order_main  my_message_tk TaoCan" id="zsTaoCan" style="width:850px;">
+        <div class="open_time_pos" style="width:850px">
+          <div class="open_versions tcbgcolor" style="margin-bottom: 20px" >开通店铺专属公众号</div>
+
+          <div class="open_time_cen">
+            <span>开通时长：</span>
+            <span id="zsCommodlist">
+             <!-- <a class="open_time_img bor_blue"><i class="icon_gou"></i>1年</a>
+              <a class="open_time_img ">2年</a>
+              <a class="open_time_img bor_blue"><i class="icon_gou"></i>3年</a>-->
+            </span>
+          </div>
+          <div class="open_time_cen">
+            <span>金额：</span>
+            <span class="tk_red" id="zsPrice"></span>元
+          </div>
+          <a class="eating_tc_btn_close closeBtn " style="margin-top: -10px;">×</a>
+        </div>
+        <div class="edit_name_box_btn02 ">
+          <a id="zssure"  style="margin-bottom:14px;" href="javascript:;"  class=" butsbase_ib  butblue01 mr30  text-center">确定</a>
+        </div>
+
+      </div>
+
+
+     <!--订单支付-->
+      <div class="sms_place_order_main  my_message_tk TaoCan" id="orderContent">
+        <!-- 标题  -->
+        <div class="sms_place_order_tatle" >订单支付<a class="crossbut closeBtn " value="1"></a></div>
+
+        <!-- 主体  -->
+        <div class="tk_marketplace" style="min-height:0px">
+          <div class="tk_marketplace01">
+            <span class="tk_marketplace_k" ></span>
+            <span>订单详情</span>
+          </div>
+          <div class="matop10"></div>
+          <div class="tk_marketplace02">
+            <p id="shopNameCon"><span class="tk_marketplace_span01">店铺名：<span id="shopName"></span></span><span></span></p>
+            <p><span class="tk_marketplace_span01">工具名：<span id="tctype"></span></span> </p>
+            <p><span class="tk_marketplace_span01">经手人：<span id="userName"></span></span><span></span></p>
+            <p><span class="tk_marketplace_span01">总价格：<span class="tk_red allprice" ></span></span></p>
+          </div>
+
+          <div style="height: 30px;"></div>
+          <div class="tk_marketplace01">
+            <span class="tk_marketplace_k"></span>
+            <span>选择支付方式</span>
+          </div>
+          <div class="tk_marketplace_chice" id="payRely">
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="3" id="hlShowRadio1">
+                                  <label for="hlShowRadio1"></label>
+              </span>
+              <i class="icon_mlj"></i>
+              <span class="marketplace_mlb">美丽宝</span>
+              <p class="tk_red ye beautBalance" style="font-size:10px;" ></p>
+            </div>
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="1" id="hlShowRadio2">
+                                  <label for="hlShowRadio2"></label>
+              </span>
+              <i class="icon_weixin"></i>
+              <span class="marketplace_mlb">微信扫码付款</span>
+              <!--<p class="tk_red ye">余额8.88元</p>-->
+            </div>
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="0" id="hlShowRadio3">
+                                  <label for="hlShowRadio3"></label>
+              </span>
+              <i class="icon_zfb"></i>
+              <span class="marketplace_mlb">支付宝扫码付款</span>
+              <!--<p class="tk_red ye">余额8.88元</p>-->
+            </div>
+          </div>
+        </div>
+
+        <!-- 按钮  -->
+        <div class="sms_place_order_buts pl30">
+
+          <div class="edit_name_box_btn ">
+            <a class=" butsbase_ib  butblue01 mr30 fl marketplacebtn payNow" >立即支付</a>
+            <span class="checkboxneo fl "style="margin-top: 28px;">
+          <input type="checkbox" value="0" class="checkboxagree" id="checkboxOneInput5" name="storage" tabindex="3">
+          <label for="checkboxOneInput5"  >
+          </label>
+         </span>
+            <a href="http://www.mljia.cn//event/helpcenter/html/protocol.html" target="_blank" >已知悉并同意《美丽加版本服务收费协议》
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!--订单支付 遇到问题-->
+      <div class="sms_place_order_main  my_message_tk TaoCan" id="payPro">
+        <!-- 标题  -->
+        <div class="sms_place_order_tatle">支付遇到问题<a class="crossbut closeBtn" value="1"></a></div>
+
+        <!-- 主体  -->
+        <div class="tk_marketplace">
+
+          <div class="sms_err_question weixinCode_lule" style="border-top:0px;padding-top:0px;padding-bottom:5px;">
+            <span class="tk_marketplace_k"></span>
+            <span class="txt0 poi1">可能是以下原因导致您的支付失败，您可以对照问题进行排查：</span>
+            <p class="txt1 ">1.所需支付金额超过了银行支付限额</p>
+            <p class="txt2">建议您登录网上银行提高上限额度，或是先分若干次充值到支付宝账号余额，即能轻松支付。</p>
+            <p class="txt1">2.支付宝或网银页面显示错误或者空白</p>
+            <p class="txt2">您可以关闭浏览器后重新打开再进行支付。</p>
+            <p class="txt1">3.提示“支付失败”怎么办</p>
+            <p class="txt2">部分浏览器兼容问题导致支付失败，通常不会扣除支付宝或银行卡费用，建议您使用IE浏览器进行支付。</p>
+            <p class="txt1">4.您还可以选择其他支付方式完成支付</p>
+          </div>
+
+          <div class="matop10"></div>
+          <div class="tk_marketplace_tit">
+            总计：<span class="tk_red allprice"></span>
+          </div>
+
+          <div class="tk_marketplace01">
+            <span class="tk_marketplace_k"></span>
+            <span>选择支付方式</span>
+          </div>
+          <div class="tk_marketplace_chice" id="payError">
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="3" id="hlShowRadio4">
+                                  <label for="hlShowRadio4"></label>
+              </span>
+              <i class="icon_mlj"></i>
+              <span class="marketplace_mlb">美丽宝</span>
+              <p class="tk_red ye beautBalance" style="font-size:10px;"  ></p>
+            </div>
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="1" id="hlShowRadio5">
+                                  <label for="hlShowRadio5"></label>
+              </span>
+              <i class="icon_weixin"></i>
+              <span class="marketplace_mlb">微信扫码付款</span>
+              <!--<p class="tk_red ye">余额8.88元</p>-->
+            </div>
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="0" id="hlShowRadio6">
+                                  <label for="hlShowRadio6"></label>
+              </span>
+              <i class="icon_zfb"></i>
+              <span class="marketplace_mlb">支付宝扫码付款</span>
+              <!--<p class="tk_red ye">余额8.88元</p>-->
+            </div>
+          </div>
+        </div>
+
+        <!-- 按钮  -->
+        <div class="sms_place_order_buts pl30">
+
+          <div class="edit_name_box_btn ">
+            <a class=" butsbase_ib  butblue01 mr30 fl marketplacebtn payNow" id="payAagin" >立即支付</a>
+            <span class="checkboxneo fl "style="margin-top: 28px;">
+          <input type="checkbox" value="0" class="checkboxagree" id="checkboxOneInput6" name="aggree" tabindex="3">
+          <label for="checkboxOneInput6" >
+          </label>
+         </span>
+            <a href="http://www.mljia.cn//event/helpcenter/html/protocol.html" target="_blank" >已知悉并同意《美丽加版本服务收费协议》
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+
+
+
+     <!--付款iframe s-->
+      <iframe id="payIframe" class="sms_place_order_main  my_message_tk TaoCan"  src="" allowtransparency="true" style="z-index:9999999999;background-color:transparent" align='middle' marginwidth='0' marginheight='0'  frameborder='no' scrolling='no' width='950' height='800'></iframe>
+      <!--付款iframe e-->
+
+
+      <script type="text/javascript" src="{{{staticResourcesUrl}}}/javascript/library/jquery.ui.widget.js?v={{{ fileVersion }}}"></script>
+ <script type="text/javascript" src="{{{staticResourcesUrl}}}/javascript/library/artDialog/artDialog.source.js?skin=default"></script>
+<script type="text/javascript" src="{{{staticResourcesUrl}}}/javascript/library/artDialog/iframeTools.source.js?v={{{ fileVersion }}}"></script>
+<script type="text/javascript" src="{{{staticResourcesUrl}}}/javascript/library/public/public.js?v={{{ fileVersion }}}"></script>
+<script type="text/javascript" src="{{{staticResourcesUrl}}}/javascript/library/public/valiRight.js?v={{{ fileVersion }}}"></script>
+
+
+
+<script src="/o2o/resources/javascript/wechat/tools/qrcode/qrcode_pay_focus.js?v={{{ fileVersion }}}"></script>
+<script src="/o2o/resources/javascript/wechat/base/mljia_wx_userUtil.js?v={{{ fileVersion }}}"></script>
+
+{{{include '../../layout_second/footer'}}}

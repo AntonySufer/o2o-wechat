@@ -1,0 +1,365 @@
+
+
+{{{include '../layout_second/header'}}}
+
+
+
+
+
+
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/css/bootstrap.min.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/icons.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/dialog.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/guide_tise.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/base.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/mymiljia.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/zdy_version.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+
+<link href="{{{staticResourcesUrl}}}/css/bootstrap3/zdy_weixin.css?v={{{ fileVersion }}}" rel="stylesheet" type="text/css" />
+<style>
+    .maskLayer{
+        background-color: #000000;
+        height: 100%;
+        left: 0;
+        filter: alpha(opacity=30);
+        opacity: 0.3;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 99;
+        display: none;
+
+    }
+
+    .TaoCan{
+        display: none;
+        z-index: 99999;
+        position: absolute;
+        top: 24%;
+        left: 50%;
+        margin-left: -425px;
+    }
+
+    .tancanLeng{
+        width:100px ;
+        padding:0 0px;
+        font-size:10px;
+    }
+    .tcbgcolor{
+        border-radius: 5px;
+        margin-top: 1px;
+        background-color: #F3F3F5;
+    }
+</style>
+
+
+</head>
+<body   id="header">
+{{{include '../layout_second/top'}}}
+
+
+       <!--绑定且付费 start-->
+         <div class="container my_mlijia_container" id="payBind" style="display: none;">
+            <div class="container weixingginfo">
+                <div class="wXinfotop my_mlijia_weixin" >
+                    <table class="my_mlijia_weixintab">
+                        <tr>
+                            <td class="a1">微信号：</td>
+                            <td class="a2" id="weixinName"></td>
+                            <td class="a3"><span class="grey-h">解绑请联系美丽加4007-889-166转01</span></td>
+                            <td class="a4"><a id="sjkaitong">续费</a></td>
+                        </tr>
+                        <tr>
+                            <td class="a1">公众号名称：</td>
+                            <td class="a2" colspan="3" id="qrcodeName"></td>
+                        </tr>
+                        <tr>
+                            <td class="a1">公众号类型：</td>
+                            <td class="a2" colspan="3" id="qrcodeType"></td>
+                        </tr>
+                        <tr id="zsdateP">
+                            <td class="a1">服务有效期：</td>
+                            <td class="a2" colspan="3" id="indate" ></td>
+                        </tr>
+                        <tr>
+                            <td class="a1"><div class="a1 h800">公众号二维码：</div></td>
+                            <td class="a2" colspan="2"><img id="qrcodeImg"   style="width: 75px;height: 75px;display: inline-block;" src=""></td>
+                            <td class="a4"><a class="h800" id="downImg" href="" download>下载</a></td>
+                        </tr>
+                        <tr>
+                            <td class="a1" colspan="3"><span class="grey-h">点击“更新”字样即可将微信公众号的名称、头像、二维码、公众号类型信息同步为最新状态</span></td>
+                            <td class="a4"><a id="refresh">更新</a></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+          </div>
+<!--绑定且付费 end-->
+
+<!--付费没绑定 start-->
+     <div id="payNoBind" style="display: none;">
+
+        <div class="container my_mlijia_container" style="margin-top: 30px;">
+
+            <div class="my_mlijia_weixin02">
+                <div class="weixin02_p">您已付费开通商家公众号接入服务，但未绑定公众号     <a id="bindNow">立即绑定>></a></div>
+            </div>
+
+        </div>
+     </div>
+<!--付费没绑定 end-->
+
+<!--没付费没绑定 start-->
+    <div id="noPayNoBind" style="display: none;">
+        <div class="container my_mlijia_container">
+            <div class="container weixinOpLead">
+                <p class="mb20 mt40">当前未开通商家公众号接入服务，点击下方的按钮，立即开通</p>
+                <a class="wxOpLead_box">
+                    <p>商家公众号接入服务</p>
+                    <p class="wxOpLead_box_p2"><span class="wxOpLead_red">500元</span>/年</p>
+                </a>
+               <p class="mb30">开通后，店主名下所有店铺将获得：</p>
+                <ul class="wxOpLead3Ul">
+                    <li>
+                        <p><i class="icon-wxLead icon-wxLead01"></i></p>
+                        <p class="tatle">订单预约</p>
+                        <p>店内全部服务，产品<br>
+
+                            顾客一键预约</p>
+                    </li>
+
+                    <li>
+                        <p><i class="icon-wxLead icon-wxLead02"></i></p>
+                        <p class="tatle">店铺推广</p>
+                        <p>店铺分享朋友圈<br>
+
+                            让全世界看到您
+                        </p>
+                    </li>
+
+                    <li>
+                        <p><i class="icon-wxLead icon-wxLead03"></i></p>
+                        <p class="tatle">优惠促销</p>
+                        <p>优惠活动一键发布</p>
+                    </li>
+                    <li>
+                        <p><i class="icon-wxLead icon-wxLead04"></i></p>
+                        <p class="tatle">顾客管理</p>
+                        <p>打通微信和店铺顾客<br>
+
+                            沟通更即时
+                        </p>
+                    </li>
+                    <li>
+                        <p><i class="icon-wxLead icon-wxLead05"></i></p>
+                        <p class="tatle">更多功能</p>
+                        <p>敬请期待</p>
+                    </li>
+                </ul>
+
+            </div>
+
+        </div>
+    </div>
+<!--没付费没绑定 end-->
+
+
+    <!--全屏遮罩-->
+    <div class="maskLayer" id="shawn_show" style=""></div>
+    <!--商家套餐-->
+    <div class="open_time_fl TaoCan"  style="width: 850px;" id="sjTaoCan">
+        <div class="open_time_pos"  style="width:  850px;">
+            <div class="open_versions tcbgcolor"  style="margin-bottom: 10px">商家公众号接入服务</div>
+            <div class="open_time_color">
+                <p>建议用已认证的服务号（公众号的一种类型）来接入到美丽加。</p>
+                <p>由于微信接口限制，未认证公众号无法使用某些功能。公众号认证需向腾讯缴纳300元/年的认证费用。</p>
+
+            </div>
+            <div class="open_time_cen martop10">
+                <p style="float: left;height: 60px;">规格：</p>
+                <div id="sjTcResults" style="width:600px;">
+                    <!-- <a class="open_time_img bor_blue"><i class="icon_gou"></i>有公众号1年</a>
+                     <a class="open_time_img ">有公众号2年</a>
+                     <a class="open_time_img bor_blue"><i class="icon_gou"></i>有公众号3年</a>
+                     <a class="open_time_img bor_blue"><i class="icon_gou"></i>无公众号1年</a>
+                     <a class="open_time_img ">无公众号2年</a>
+                     <a class="open_time_img bor_blue"><i class="icon_gou"></i>无公众号3年</a>-->
+                </div></div>
+            <div class="open_time_cen ">
+                <span style="margin-left: -43px;">金额：</span>
+                <span class="tk_red" id="sjPrice"></span>元
+            </div>
+
+
+            <a class="eating_tc_btn_close closeBtn " style="top:4px;">×</a>
+        </div>
+        <div class="edit_name_box_btn02 ">
+            <a id="sjsure"  class="  butsbase_ib  butblue01 mr30  text-center">确定</a>
+        </div>
+    </div>
+
+   <!--订单支付-->
+   <div class="sms_place_order_main  my_message_tk TaoCan" id="orderContent">
+    <!-- 标题  -->
+       <div class="sms_place_order_tatle" >订单支付<a class="crossbut closeBtn " value="1"></a></div>
+
+    <!-- 主体  -->
+        <div class="tk_marketplace" style="min-height:0px">
+            <div class="tk_marketplace01">
+                <span class="tk_marketplace_k" ></span>
+                <span>订单详情</span>
+            </div>
+            <div class="matop10"></div>
+            <div class="tk_marketplace02">
+               <!-- <p><span class="tk_marketplace_span01">店铺名：<span id="shopName"></span></span><span></span></p>-->
+                <p><span class="tk_marketplace_span01">工具名：<span id="tctype"></span></span> </p>
+                <p><span class="tk_marketplace_span01">经手人：<span id="userName"></span></span> </p>
+                <p><span class="tk_marketplace_span01">总价格：<span class="tk_red allprice" ></span></span></p>
+            </div>
+
+            <div style="height: 30px;"></div>
+            <div class="tk_marketplace01">
+                <span class="tk_marketplace_k"></span>
+                <span>选择支付方式</span>
+            </div>
+            <div class="tk_marketplace_chice">
+                <div class="tk_marketplace_cen">
+                  <span class="radioneo fl">
+                                      <input type="radio" name="strong_edition" value="3" id="hlShowRadio1">
+                                      <label for="hlShowRadio1"></label>
+                  </span>
+                    <i class="icon_mlj"></i>
+                    <span class="marketplace_mlb" >美丽宝</span>
+                    <p class="tk_red ye beautBalance" style="font-size:10px; "></p>
+                </div>
+                <div class="tk_marketplace_cen">
+                  <span class="radioneo fl">
+                                      <input type="radio" name="strong_edition" value="1" id="hlShowRadio2">
+                                      <label for="hlShowRadio2"></label>
+                  </span>
+                    <i class="icon_weixin"></i>
+                    <span class="marketplace_mlb">微信扫码付款</span>
+                    <!--<p class="tk_red ye">余额8.88元</p>-->
+                </div>
+                <div class="tk_marketplace_cen">
+                  <span class="radioneo fl">
+                                      <input type="radio" name="strong_edition" value="0" id="hlShowRadio3">
+                                      <label for="hlShowRadio3"></label>
+                  </span>
+                    <i class="icon_zfb"></i>
+                    <span class="marketplace_mlb">支付宝扫码付款</span>
+                    <!--<p class="tk_red ye">余额8.88元</p>-->
+                </div>
+            </div>
+        </div>
+
+    <!-- 按钮  -->
+        <div class="sms_place_order_buts pl30">
+
+            <div class="edit_name_box_btn ">
+                <a class=" butsbase_ib  butblue01 mr30 fl marketplacebtn payNow" >立即支付</a>
+                <span class="checkboxneo fl "style="margin-top: 28px;">
+              <input type="checkbox" value="0" class="checkboxagree" id="checkboxOneInput5" name="storage" tabindex="3">
+              <label for="checkboxOneInput5"  >
+              </label>
+             </span>
+                <a href="http://www.mljia.cn//event/helpcenter/html/protocol.html" target="_blank" >已知悉并同意《美丽加版本服务收费协议》
+                </a>
+            </div>
+        </div>
+   </div>
+
+
+<!--订单支付 遇到问题-->
+<div class="sms_place_order_main  my_message_tk TaoCan" id="payPro">
+    <!-- 标题  -->
+    <div class="sms_place_order_tatle">支付遇到问题<a class="crossbut closeBtn" value="1"></a></div>
+
+    <!-- 主体  -->
+    <div class="tk_marketplace">
+
+        <div class="sms_err_question weixinCode_lule" style="border-top:0px;padding-top:0px;padding-bottom:5px;">
+            <span class="tk_marketplace_k"></span>
+            <span class="txt0 poi1">可能是以下原因导致您的支付失败，您可以对照问题进行排查：</span>
+            <p class="txt1 ">1.所需支付金额超过了银行支付限额</p>
+            <p class="txt2">建议您登录网上银行提高上限额度，或是先分若干次充值到支付宝账号余额，即能轻松支付。</p>
+            <p class="txt1">2.支付宝或网银页面显示错误或者空白</p>
+            <p class="txt2">您可以关闭浏览器后重新打开再进行支付。</p>
+            <p class="txt1">3.提示“支付失败”怎么办</p>
+            <p class="txt2">部分浏览器兼容问题导致支付失败，通常不会扣除支付宝或银行卡费用，建议您使用IE浏览器进行支付。</p>
+            <p class="txt1">4.您还可以选择其他支付方式完成支付</p>
+        </div>
+
+        <div class="matop10"></div>
+        <div class="tk_marketplace_tit">
+            总计：<span class="tk_red allprice"></span>
+        </div>
+
+        <div class="tk_marketplace01">
+            <span class="tk_marketplace_k"></span>
+            <span>选择支付方式</span>
+        </div>
+        <div class="tk_marketplace_chice" id="payError">
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="3" id="hlShowRadio4">
+                                  <label for="hlShowRadio4"></label>
+              </span>
+                <i class="icon_mlj"></i>
+                <span class="marketplace_mlb">美丽宝</span>
+                <p class="tk_red ye beautBalance"  ></p>
+            </div>
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="1" id="hlShowRadio5">
+                                  <label for="hlShowRadio5"></label>
+              </span>
+                <i class="icon_weixin"></i>
+                <span class="marketplace_mlb">微信扫码付款</span>
+                <!--<p class="tk_red ye">余额8.88元</p>-->
+            </div>
+            <div class="tk_marketplace_cen">
+              <span class="radioneo fl">
+                                  <input type="radio" name="strong_edition" value="0" id="hlShowRadio6">
+                                  <label for="hlShowRadio6"></label>
+              </span>
+                <i class="icon_zfb"></i>
+                <span class="marketplace_mlb">支付宝扫码付款</span>
+                <!--<p class="tk_red ye">余额8.88元</p>-->
+            </div>
+        </div>
+    </div>
+
+    <!-- 按钮  -->
+    <div class="sms_place_order_buts pl30">
+
+            <div class="edit_name_box_btn ">
+                <a class=" butsbase_ib  butblue01 mr30 fl marketplacebtn payNow" id="payAagin" >立即支付</a>
+                <span class="checkboxneo fl "style="margin-top: 28px;">
+              <input type="checkbox" value="0" class="checkboxagree" id="checkboxOneInput6" name="aggree" tabindex="3">
+              <label for="checkboxOneInput6" >
+              </label>
+             </span>
+                <a href="http://www.mljia.cn//event/helpcenter/html/protocol.html" target="_blank" >已知悉并同意《美丽加版本服务收费协议》
+                </a>
+            </div>
+
+    </div>
+
+   </div>
+
+
+
+
+
+
+
+
+<script src="/o2o/resources/javascript/wechat/qrcode/open_pub_succeeds.js?v={{{ fileVersion }}}"></script>
+
+<script src="/o2o/resources/javascript/wechat/base/mljia_wx_userUtil.js?v={{{ fileVersion }}}"></script>
+
+{{{include '../layout_second/footer'}}}
+
+

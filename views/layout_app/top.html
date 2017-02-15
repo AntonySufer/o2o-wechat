@@ -1,0 +1,59 @@
+
+<div class="top_navbar">
+    <div class="navbar_container">
+        <div class="fl navbar_left">
+            <p><a href="{{{homeUrl}}}/menu/index?route=app&view=menu_index" target="_blank"><i class="icon-home"></i>美丽加首页</a></p>
+        </div>
+        <div class="fr">
+            <ul class="navbar_right" id="user_module">
+                <li data-user="true"></li>
+                <li data-user="true" style="display: none"></li>
+                <li data-user="true"><a id="exitLogin">&nbsp;退出</a></li>
+                <li id="setHomes">|</li>
+                <li id="setHomes2"><a href="/o2o/route/{{{shopSid}}}/help-wechat_help_center" target="_blank">帮助中心</a></li>
+                <li><a href="{{{homeUrl}}}/menu/index?route=app&view=menu_index"  target="_blank">店主首页</a></li>
+                <li id="setHomes">|</li>
+                <li id="setHomes2"><a href="javascript:;" id="addHomePage">设为首页</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<!-- 轮播广告位 -->
+
+
+<div class="top_subnav_main" style="height:auto">
+
+    <!--新手指引-->
+    <div class="BeginGuide_main">
+        <div class="BeginGuide_blackbg"></div>
+        <div class="BeginGuide_center">
+            <div class="BeginGuide_pic">
+                <a class="BeginGuide_but00" title="" ></a>
+                <a class="BeginGuide_but01" title=""></a>
+
+                <a class="BeginGuide_but02" title=""></a>
+                <a class="BeginGuide_but03" title=""></a>
+
+                <a class="BeginGuide_but04" href="<%=request.getContextPath()%>/staticHtml/helpCenter/cut/setting" target="_blank"></a>
+                <a class="BeginGuide_cross" title=""></a>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <div class="header" id="auto_header">
+        <div class="header_center">
+            <a href="{{{homeUrl}}}/{{{shopSid}}}" target="_blank" class="logo" title="美丽加"></a>
+            <p class="hd_title">微信平台</p>
+
+        </div>
+    </div>
+
+
+
+</div>
+
+<input type="hidden" id="shopIdKey" value="{{{shopSid}}}" />
